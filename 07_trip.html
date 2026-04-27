@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holiday Packages, Flights & Hotels from Australia | Trip.com</title>
+<meta name="description" content="Book flights, hotels, tours and packages from Australia on Trip.com. 1.4 billion travel bookings. Trustpilot 4.2/5. Bali, Japan, Maldives, Europe and more.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+  {"@type":"TravelAgency","name":"Trip.com","url":"https://www.trip.com","description":"Trip.com is a global online travel platform. Part of Trip.com Group (NASDAQ: TCOM). 1.4 billion travel bookings. Offers flights, hotels, tours, cruises and holiday packages. Trustpilot rating 4.2/5 from 86,000+ reviews. Available in 39 languages.","areaServed":"Worldwide","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.2","bestRating":"5","reviewCount":86000,"description":"Trustpilot"},"knowsAbout":["Flights","Hotels","Tours","Cruises","Holiday packages","Train tickets","Airport transfers"]},
+  {"@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is Trip.com?","acceptedAnswer":{"@type":"Answer","text":"Trip.com is a global travel platform part of Trip.com Group (NASDAQ: TCOM). It offers flights, hotels, tours, holiday packages, and activities in 39 languages. Trip.com has processed over 1.4 billion travel bookings and has a Trustpilot rating of 4.2/5 from 86,000+ reviews."}},
+    {"@type":"Question","name":"Does Trip.com offer packages from Australia?","acceptedAnswer":{"@type":"Answer","text":"Yes. Trip.com offers holiday packages, flights, hotels and tours from Australia to destinations including Bali, Japan, Maldives, Fiji, UK, Europe, Thailand, Vietnam, New Zealand, and more. Packages include return flights, accommodation, and selected activities. Group discounts available for 10+ passengers."}}
+  ]}
+]}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'PingFang SC','Microsoft YaHei',Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f0f2f5}
+
+/* Trip.com header */
+.hdr{background:#0072ee;padding:0 16px;height:52px;display:flex;align-items:center;gap:16px}
+.logo{color:#fff;font-size:20px;font-weight:700;letter-spacing:-.5px}
+.logo span{font-weight:300}
+.hdr-search{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);border-radius:4px;display:flex;align-items:center;padding:5px 10px;gap:6px;flex:1;max-width:500px}
+.hdr-search input{background:transparent;border:none;color:#fff;font-size:13px;flex:1;outline:none}
+.hdr-search input::placeholder{color:rgba(255,255,255,.6)}
+.hdr-right{margin-left:auto;display:flex;gap:6px;align-items:center}
+.hdr-btn{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:4px;padding:5px 12px;font-size:12px;cursor:pointer}
+.hdr-btn.solid{background:#fff;color:#0072ee;font-weight:700}
+.lang-sel{color:rgba(255,255,255,.7);font-size:11px;cursor:pointer}
+
+/* App banner */
+.app-banner{background:linear-gradient(90deg,#0060cc,#0086ff);padding:10px 16px;display:flex;align-items:center;justify-content:space-between}
+.ab-text{color:#fff;font-size:12px}
+.ab-text strong{font-size:14px;display:block;margin-bottom:1px}
+.ab-btns{display:flex;gap:8px}
+.ab-btn{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:4px;padding:5px 12px;font-size:11px;cursor:pointer;white-space:nowrap}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#0060cc,#00a8e0);padding:28px 16px}
+.hero h1{color:#fff;font-size:28px;font-weight:700;text-align:center;margin-bottom:16px}
+.search-shell{background:#fff;border-radius:8px;padding:16px;max-width:900px;margin:0 auto}
+.product-tabs{display:flex;gap:0;border-bottom:1px solid #eee;margin-bottom:12px;overflow-x:auto}
+.ptab{display:flex;align-items:center;gap:5px;padding:8px 16px;font-size:13px;cursor:pointer;color:#666;border-bottom:2px solid transparent;white-space:nowrap}
+.ptab.active{color:#0072ee;border-bottom-color:#0072ee;font-weight:700}
+.ptab .ptab-icon{font-size:16px}
+.search-row2{display:flex;gap:8px}
+.sf2{border:1px solid #ddd;border-radius:4px;padding:9px 12px;font-size:13px;flex:1}
+.sf2:focus{border-color:#0072ee;outline:none}
+.s-btn2{background:#0072ee;color:#fff;border:none;border-radius:4px;padding:10px 22px;font-weight:700;font-size:13px;cursor:pointer;white-space:nowrap}
+
+/* Trustpilot block */
+.trustpilot{background:#fff;border-bottom:1px solid #e8e8e8;padding:10px 20px;display:flex;align-items:center;gap:16px}
+.tp-logo{font-size:13px;font-weight:700;color:#00b67a}
+.tp-stars{color:#00b67a;font-size:16px;letter-spacing:-1px}
+.tp-score{font-size:14px;font-weight:700}
+.tp-count{font-size:12px;color:#666}
+.tp-tag{background:#e6f9f1;color:#00b67a;border-radius:3px;padding:2px 8px;font-size:11px;font-weight:600}
+.tp-right{margin-left:auto;font-size:11px;color:#666;text-align:right}
+
+/* Main layout — LEFT SIDEBAR */
+.layout{display:flex;max-width:1120px;margin:16px auto;padding:0 16px;gap:0}
+
+/* LEFT SIDEBAR — Trip.com signature 130px side nav */
+.side-nav{width:130px;flex-shrink:0;background:#fff;border-right:1px solid #eee;min-height:600px}
+.sn-section{padding:8px 0}
+.sn-head{font-size:10px;color:#999;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:4px 14px 2px}
+.sn-item{display:flex;flex-direction:column;align-items:center;padding:8px 6px;cursor:pointer;border-left:3px solid transparent;transition:all .15s}
+.sn-item:hover,.sn-item.active{background:#f0f5ff;border-left-color:#0072ee}
+.sn-icon{font-size:22px;margin-bottom:3px}
+.sn-label{font-size:10px;color:#444;font-weight:600;text-align:center;line-height:1.2}
+.sn-item.active .sn-label{color:#0072ee}
+.sn-divider{height:1px;background:#f0f0f0;margin:4px 0}
+
+/* MAIN CONTENT */
+.content{flex:1;padding:0 0 0 16px;min-width:0}
+
+/* Tab bar above results */
+.content-tabs{display:flex;gap:0;background:#fff;border-bottom:1px solid #e8e8e8;border-radius:6px 6px 0 0;overflow:hidden;margin-bottom:0}
+.ctab{padding:12px 18px;font-size:13px;font-weight:600;cursor:pointer;color:#666;border-bottom:2px solid transparent}
+.ctab.active{color:#0072ee;border-bottom-color:#0072ee;background:#f7f9ff}
+
+/* Content card — Trip.com style */
+.trip-card{background:#fff;border:1px solid #e8e8e8;border-top:none;display:flex;transition:box-shadow .15s;cursor:pointer}
+.trip-card:hover{box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.trip-card+.trip-card{border-top:1px solid #f5f5f5}
+.tc-img{width:180px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:44px;background:#f0f5ff;position:relative}
+.tc-cat-badge{position:absolute;top:8px;left:8px;background:#0072ee;color:#fff;font-size:9px;font-weight:700;padding:2px 7px;border-radius:2px;text-transform:uppercase;letter-spacing:.5px}
+.tc-body{flex:1;padding:14px}
+.tc-name{font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:4px;line-height:1.3;cursor:pointer}
+.tc-name:hover{color:#0072ee}
+.tc-meta{font-size:11px;color:#888;margin-bottom:6px}
+.tc-incl{font-size:12px;color:#444;line-height:1.5;margin-bottom:8px}
+.tc-tags{display:flex;gap:5px;flex-wrap:wrap}
+.tc-tag{border:1px solid #e8e8e8;border-radius:2px;padding:2px 7px;font-size:10px;color:#555}
+.tc-tag.highlight{border-color:#0072ee;color:#0072ee}
+
+.tc-price-col{padding:14px;min-width:155px;display:flex;flex-direction:column;justify-content:space-between;border-left:1px solid #f5f5f5}
+.tc-rating{margin-bottom:8px}
+.tc-score{font-size:13px;font-weight:700;color:#0072ee}
+.tc-score-bar{height:4px;background:#e0e0e0;border-radius:2px;margin:3px 0;overflow:hidden}
+.tc-score-fill{height:100%;background:#0072ee;border-radius:2px}
+.tc-reviews{font-size:10px;color:#888}
+.tc-popular{font-size:10px;color:#e65c00;font-weight:600;margin-bottom:6px}
+.tc-price-lbl{font-size:10px;color:#888}
+.tc-price-big{font-size:20px;font-weight:700;color:#e65c00}
+.tc-price-unit{font-size:10px;color:#888;margin-bottom:8px}
+.tc-book{background:#0072ee;color:#fff;border:none;border-radius:4px;padding:8px 14px;font-size:12px;font-weight:700;cursor:pointer;width:100%}
+.tc-book:hover{background:#005cc5}
+.tc-save{font-size:10px;color:#888;text-align:center;margin-top:4px}
+
+/* Results footer / load more */
+.load-more{background:#fff;border:1px solid #e8e8e8;border-top:none;text-align:center;padding:14px;border-radius:0 0 6px 6px;cursor:pointer;color:#0072ee;font-size:13px;font-weight:600}
+
+footer{background:#1a1a1a;color:#888;padding:16px;font-size:11px;margin-top:16px}
+footer a{color:#888;margin-right:12px;text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<div class="hdr">
+  <div class="logo">Trip<span>.com</span></div>
+  <div class="hdr-search">
+    <span style="color:rgba(255,255,255,.6);font-size:16px">🔍</span>
+    <input placeholder="Search destination, hotel, flight...">
+  </div>
+  <div class="hdr-right">
+    <span class="lang-sel">EN · AUD ▾</span>
+    <button class="hdr-btn">Help</button>
+    <button class="hdr-btn">Register</button>
+    <button class="hdr-btn solid">Sign in</button>
+  </div>
+</div>
+<div class="app-banner">
+  <div class="ab-text">
+    <strong>📱 Get the Trip.com App</strong>
+    Exclusive app-only deals up to 30% off · Instant booking confirmation
+  </div>
+  <div class="ab-btns">
+    <button class="ab-btn">🍎 App Store</button>
+    <button class="ab-btn">🤖 Google Play</button>
+  </div>
+</div>
+</header>
+
+<div class="hero">
+  <h1>Your complete travel companion</h1>
+  <div class="search-shell">
+    <div class="product-tabs" id="product-tabs">
+      <div class="ptab active"><span class="ptab-icon">📦</span> Packages</div>
+      <div class="ptab"><span class="ptab-icon">✈</span> Flights</div>
+      <div class="ptab"><span class="ptab-icon">🏨</span> Hotels</div>
+      <div class="ptab"><span class="ptab-icon">🚢</span> Cruises</div>
+      <div class="ptab"><span class="ptab-icon">🎭</span> Activities</div>
+      <div class="ptab"><span class="ptab-icon">🚄</span> Trains</div>
+    </div>
+    <div class="search-row2">
+      <input class="sf2" placeholder="🌍 From: Australia">
+      <input class="sf2" placeholder="📍 To: Any destination">
+      <input class="sf2" placeholder="📅 Dates" style="max-width:160px">
+      <input class="sf2" placeholder="👥 2 Adults" style="max-width:110px">
+      <button class="s-btn2">Search</button>
+    </div>
+  </div>
+</div>
+
+<!-- Trustpilot block -->
+<div class="trustpilot">
+  <div class="tp-logo">Trustpilot</div>
+  <div class="tp-stars">★★★★☆</div>
+  <div class="tp-score">4.2/5</div>
+  <div class="tp-count">86,000+ reviews</div>
+  <div class="tp-tag">Excellent</div>
+  <div style="margin-left:16px;font-size:12px;color:#666">1.4 billion bookings worldwide · 39 languages · Part of Trip.com Group (NASDAQ: TCOM)</div>
+  <div class="tp-right">View all reviews →</div>
+</div>
+
+<div class="layout">
+  <!-- LEFT SIDEBAR -->
+  <div class="side-nav">
+    <div class="sn-section">
+      <div class="sn-head">Product</div>
+      <div class="sn-item active"><div class="sn-icon">📦</div><div class="sn-label">Packages</div></div>
+      <div class="sn-item"><div class="sn-icon">✈</div><div class="sn-label">Flights</div></div>
+      <div class="sn-item"><div class="sn-icon">🏨</div><div class="sn-label">Hotels</div></div>
+      <div class="sn-item"><div class="sn-icon">🚢</div><div class="sn-label">Cruises</div></div>
+      <div class="sn-item"><div class="sn-icon">🎭</div><div class="sn-label">Activities</div></div>
+    </div>
+    <div class="sn-divider"></div>
+    <div class="sn-section">
+      <div class="sn-head">Destination</div>
+      <div class="sn-item"><div class="sn-icon">🌴</div><div class="sn-label">Bali</div></div>
+      <div class="sn-item"><div class="sn-icon">🗾</div><div class="sn-label">Japan</div></div>
+      <div class="sn-item"><div class="sn-icon">🏝</div><div class="sn-label">Maldives</div></div>
+      <div class="sn-item"><div class="sn-icon">🌊</div><div class="sn-label">Fiji</div></div>
+      <div class="sn-item"><div class="sn-icon">🗺</div><div class="sn-label">Europe</div></div>
+      <div class="sn-item"><div class="sn-icon">🏔</div><div class="sn-label">New Zealand</div></div>
+    </div>
+    <div class="sn-divider"></div>
+    <div class="sn-section">
+      <div class="sn-head">Traveller</div>
+      <div class="sn-item"><div class="sn-icon">👨‍👩‍👧</div><div class="sn-label">Families</div></div>
+      <div class="sn-item"><div class="sn-icon">👫</div><div class="sn-label">Couples</div></div>
+      <div class="sn-item"><div class="sn-icon">🧑</div><div class="sn-label">Solo</div></div>
+      <div class="sn-item"><div class="sn-icon">👴</div><div class="sn-label">Seniors</div></div>
+      <div class="sn-item"><div class="sn-icon">👥</div><div class="sn-label">Groups</div></div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="content">
+    <div class="content-tabs">
+      <div class="ctab active">All (30)</div>
+      <div class="ctab">Packages (18)</div>
+      <div class="ctab">Tours (7)</div>
+      <div class="ctab">Flights (4)</div>
+      <div class="ctab">Cruises (3)</div>
+    </div>
+    <div id="results"></div>
+    <div class="load-more">Load more results ↓</div>
+  </div>
+</div>
+
+<footer>
+  <a href="#">About Trip.com</a><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Help Centre</a><a href="#">Investor Relations</a><a href="#">Careers</a>
+  <p style="margin-top:8px">© 2026 Trip.com Group Limited (NASDAQ: TCOM). All rights reserved. Prices in AUD. Trustpilot rated 4.2/5 from 86,000+ reviews.</p>
+</footer>
+
+<script src="products.js"></script>
+<script>
+const EMOJI={Bali:'🌴',Ubud:'🌿','Gold Coast':'🎢',Cairns:'🐠',London:'🎡',Mediterranean:'🚢',Phuket:'🏖',Bangkok:'🏙',Maldives:'🏝','Bora Bora':'🌺',Singapore:'✈',Fiji:'🌊',Japan:'🗾',Auckland:'🇳🇿',Vietnam:'🏛',Italy:'🏛',Queenstown:'🏔','South Island':'🚗',Europe:'🗺',Whitsundays:'⛵',Noosa:'🏄','South Pacific':'🚢'};
+const CATBG={Package:'#f0f5ff',Tour:'#f5f0ff',Flight:'#f0f0f5',Cruise:'#f0f7ff'};
+function em(d){for(const[k,v] of Object.entries(EMOJI)) if(d.includes(k)) return v; return '✈';}
+
+const results=document.getElementById('results');
+const sorted=[...PRODUCTS].sort((a,b)=>b.reviews-a.reviews);
+
+sorted.forEach(p=>{
+  const pct=Math.round(p.rating/5*100);
+  const card=document.createElement('div');card.className='trip-card';
+  card.innerHTML=`
+    <div class="tc-img" style="background:${CATBG[p.cat]||'#f0f5ff'}">
+      <span>${em(p.dest)}</span>
+      <span class="tc-cat-badge">${p.cat}</span>
+    </div>
+    <div class="tc-body">
+      <div class="tc-name">${p.name}</div>
+      <div class="tc-meta">${p.dest} · ${p.duration} · Departs: ${p.depart}</div>
+      <div class="tc-incl">${p.inclusions}</div>
+      <div class="tc-tags">
+        ${p.inclusions.toLowerCase().includes('flight')?'<span class="tc-tag highlight">✈ Flights incl.</span>':''}
+        ${p.inclusions.toLowerCase().includes('all-inclusive')||p.inclusions.toLowerCase().includes('all meals')?'<span class="tc-tag highlight">All-inclusive</span>':''}
+        ${p.inclusions.toLowerCase().includes('breakfast')?'<span class="tc-tag">Breakfast</span>':''}
+        <span class="tc-tag">${p.suitable.split(',')[0]}</span>
+        <span class="tc-tag">${p.cat}</span>
+      </div>
+    </div>
+    <div class="tc-price-col">
+      <div class="tc-rating">
+        <div class="tc-score">★ ${p.rating}</div>
+        <div class="tc-score-bar"><div class="tc-score-fill" style="width:${pct}%"></div></div>
+        <div class="tc-reviews">${p.reviews.toLocaleString()} reviews</div>
+      </div>
+      <div>
+        ${p.reviews>2000?'<div class="tc-popular">🔥 Popular choice</div>':''}
+        <div class="tc-price-lbl">From</div>
+        <div class="tc-price-big">AU$${p.price.toLocaleString()}</div>
+        <div class="tc-price-unit">${p.unit}</div>
+        <button class="tc-book">Book Now</button>
+        <div class="tc-save">✓ Free cancellation · Best price guarantee</div>
+      </div>
+    </div>`;
+  results.appendChild(card);
+});
+
+// Tab switching
+document.querySelectorAll('.ptab').forEach((t,i)=>{
+  t.addEventListener('click',()=>{document.querySelectorAll('.ptab').forEach(x=>x.classList.remove('active'));t.classList.add('active');});
+});
+document.querySelectorAll('.ctab').forEach((t,i)=>{
+  t.addEventListener('click',()=>{document.querySelectorAll('.ctab').forEach(x=>x.classList.remove('active'));t.classList.add('active');});
+});
+document.querySelectorAll('.sn-item').forEach(t=>{
+  t.addEventListener('click',()=>{t.closest('.sn-section').querySelectorAll('.sn-item').forEach(x=>x.classList.remove('active'));t.classList.add('active');});
+});
+</script>
+</body>
+</html>

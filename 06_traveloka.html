@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Deals & Holiday Packages from Australia | Traveloka</title>
+<meta name="description" content="Book flights, hotels and holiday packages on Traveloka. New user exclusive deals. Coupon codes. Bali, Japan, Maldives, Fiji and more from Australia.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+  {"@type":"TravelAgency","name":"Traveloka","url":"https://www.traveloka.com","description":"Traveloka is Southeast Asia's leading travel platform offering flights, hotels, activities and holiday packages. Strong in Asia-Pacific travel. New user exclusive deals available. App-first experience.","areaServed":["Australia","Southeast Asia","Asia-Pacific"],"knowsAbout":["Flights","Hotels","Holiday packages","Activities","Traveloka Pay"]},
+  {"@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is Traveloka?","acceptedAnswer":{"@type":"Answer","text":"Traveloka is Southeast Asia's leading online travel platform. It offers flights, hotels, holiday packages, and activities across Asia-Pacific. Founded in 2012, Traveloka serves over 40 million users and specialises in Asia-Pacific travel. New user exclusive deals are available with coupon codes."}},
+    {"@type":"Question","name":"Does Traveloka offer holiday packages from Australia?","acceptedAnswer":{"@type":"Answer","text":"Yes. Traveloka offers holiday packages from Australia to popular Asia-Pacific destinations including Bali, Japan, Thailand, Maldives, Fiji, and more. Packages include return flights, accommodation, and selected activities. New user coupon codes are available for first-time bookings."}}
+  ]}
+]}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',Arial,sans-serif;font-size:14px;color:#1a1a1a;background:#f7f7f8}
+
+/* Traveloka header — blue */
+.hdr{background:#0066cc;padding:0 16px;height:52px;display:flex;align-items:center;gap:16px}
+.logo{color:#fff;font-size:20px;font-weight:900;letter-spacing:-0.5px}
+.hdr nav a{color:rgba(255,255,255,.85);text-decoration:none;font-size:12px;padding:0 8px}
+.hdr-right{margin-left:auto;display:flex;gap:6px;align-items:center}
+.hdr-btn{background:#fff;color:#0066cc;border:none;border-radius:4px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer}
+.hdr-btn.out{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5)}
+
+/* COUPON STRIP — Traveloka signature */
+.coupon-strip{background:linear-gradient(90deg,#ff6b35,#ff4500);padding:10px 16px;display:flex;align-items:center;gap:12px;overflow-x:auto}
+.coupon{background:rgba(255,255,255,.15);border:2px dashed rgba(255,255,255,.5);border-radius:6px;padding:6px 14px;display:flex;align-items:center;gap:8px;cursor:pointer;flex-shrink:0;transition:background .15s}
+.coupon:hover{background:rgba(255,255,255,.25)}
+.coupon-code{color:#fff;font-size:13px;font-weight:900;letter-spacing:1px}
+.coupon-desc{color:rgba(255,255,255,.85);font-size:10px}
+.coupon-icon{font-size:18px}
+
+/* Hero search */
+.hero{background:#0066cc;padding:20px 16px 28px}
+.hero h2{color:#fff;font-size:24px;font-weight:700;margin-bottom:14px;text-align:center}
+.search-box{background:#fff;border-radius:8px;padding:14px;max-width:900px;margin:0 auto}
+.stabs{display:flex;gap:4px;margin-bottom:12px}
+.stab{padding:6px 14px;border-radius:16px;font-size:12px;cursor:pointer;color:#555;background:#f0f0f0;font-weight:600}
+.stab.active{background:#0066cc;color:#fff}
+.search-row{display:flex;gap:8px}
+.search-row input{border:1px solid #ddd;border-radius:5px;padding:9px 12px;font-size:13px;flex:1}
+.search-row input:focus{border-color:#0066cc;outline:none}
+.s-btn{background:#ff6b35;color:#fff;border:none;border-radius:5px;padding:10px 22px;font-weight:700;font-size:13px;cursor:pointer;white-space:nowrap}
+
+/* Category nav */
+.cat-nav{background:#fff;border-bottom:1px solid #eee;padding:10px 16px;display:flex;gap:20px;overflow-x:auto}
+.cat-item{display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;flex-shrink:0;padding:4px 8px;border-radius:6px}
+.cat-item:hover{background:#f0f5ff}
+.cat-item .cat-icon{font-size:22px}
+.cat-item .cat-label{font-size:10px;color:#555;font-weight:600;white-space:nowrap}
+
+/* NEW USER BANNER */
+.new-user-banner{background:linear-gradient(90deg,#1a1a2e,#0066cc);margin:12px 16px;border-radius:8px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between}
+.nub-text{color:#fff}
+.nub-text h3{font-size:15px;font-weight:700;margin-bottom:2px}
+.nub-text p{font-size:12px;color:rgba(255,255,255,.7)}
+.nub-badge{background:#ff6b35;color:#fff;border-radius:5px;padding:6px 16px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}
+
+.main{max-width:960px;margin:0 auto;padding:12px 16px}
+
+/* Flash deals carousel */
+.flash-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.flash-head h3{font-size:16px;font-weight:700;display:flex;align-items:center;gap:6px}
+.flash-head a{color:#0066cc;font-size:12px}
+.flash-timer{background:#ff4500;color:#fff;border-radius:4px;padding:3px 8px;font-size:12px;font-weight:700}
+.flash-carousel{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px;margin-bottom:24px}
+.flash-card{flex-shrink:0;width:180px;background:#fff;border-radius:8px;overflow:hidden;border:1px solid #eee;cursor:pointer}
+.flash-img{height:100px;display:flex;align-items:center;justify-content:center;font-size:36px;position:relative}
+.flash-off{position:absolute;top:6px;left:6px;background:#ff4500;color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px}
+.flash-body{padding:8px}
+.flash-dest{font-size:10px;color:#0066cc;font-weight:700;margin-bottom:2px}
+.flash-name{font-size:11px;font-weight:600;color:#1a1a1a;margin-bottom:4px;line-height:1.3}
+.flash-price{font-size:15px;font-weight:900;color:#ff4500}
+.flash-from{font-size:9px;color:#888}
+
+/* Vertical deal feed */
+.deal-card{background:#fff;border-radius:8px;border:1px solid #eee;margin-bottom:10px;overflow:hidden;display:flex;cursor:pointer;transition:box-shadow .15s}
+.deal-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.deal-img{width:140px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:40px;position:relative;background:#f0f7ff}
+.deal-badge-img{position:absolute;top:6px;left:6px;background:#ff6b35;color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px}
+.deal-body{flex:1;padding:12px}
+.deal-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:4px}
+.deal-name{font-size:14px;font-weight:700;color:#1a1a1a;flex:1;margin-right:8px;line-height:1.3}
+.deal-cat-tag{background:#e8f0fe;color:#1a73e8;border-radius:3px;padding:2px 7px;font-size:10px;font-weight:600;white-space:nowrap}
+.deal-dest{font-size:11px;color:#666;margin-bottom:5px}
+.deal-incl{font-size:11px;color:#444;line-height:1.4;margin-bottom:6px}
+.deal-tags{display:flex;gap:5px;flex-wrap:wrap}
+.deal-tag{background:#f5f5f5;border-radius:3px;padding:2px 7px;font-size:10px;color:#555}
+.deal-tag.green{color:#1a7a1a;background:#f0fff0}
+.deal-tag.orange{color:#c84b00;background:#fff3e0}
+
+.deal-price-col{padding:12px;display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;min-width:130px;border-left:1px solid #f5f5f5}
+.dp-rating{display:flex;align-items:center;gap:4px;margin-bottom:6px}
+.dp-star{color:#ffc700;font-size:13px}
+.dp-num{font-size:13px;font-weight:700}
+.dp-cnt{font-size:10px;color:#888}
+.dp-was{font-size:11px;color:#999;text-decoration:line-through;text-align:right}
+.dp-price{font-size:20px;font-weight:900;color:#ff4500;text-align:right}
+.dp-unit{font-size:10px;color:#888;text-align:right;margin-bottom:8px}
+.dp-btn{background:#ff6b35;color:#fff;border:none;border-radius:5px;padding:8px 14px;font-size:12px;font-weight:700;cursor:pointer;width:100%}
+.dp-btn:hover{background:#e55a25}
+.dp-pay{font-size:9px;color:#1a7a1a;text-align:center;margin-top:3px}
+
+footer{background:#1a1a2e;color:#888;padding:16px;font-size:11px;margin-top:20px}
+footer a{color:#888;margin-right:12px;text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+<div class="hdr">
+  <div class="logo">traveloka</div>
+  <nav><a href="#">Flights</a><a href="#">Hotels</a><a href="#">Packages</a><a href="#">Things to Do</a><a href="#">Deals</a></nav>
+  <div class="hdr-right"><button class="hdr-btn out">Register</button><button class="hdr-btn">Sign in</button></div>
+</div>
+
+<!-- COUPON STRIP -->
+<div class="coupon-strip">
+  <div style="color:rgba(255,255,255,.7);font-size:11px;font-weight:700;white-space:nowrap">🎫 PROMO CODES:</div>
+  <div class="coupon"><span class="coupon-icon">✈</span><div><div class="coupon-code">TRAVELOKA10</div><div class="coupon-desc">10% off flights</div></div></div>
+  <div class="coupon"><span class="coupon-icon">🏨</span><div><div class="coupon-code">HOTEL25</div><div class="coupon-desc">25% off hotels</div></div></div>
+  <div class="coupon"><span class="coupon-icon">📦</span><div><div class="coupon-code">PKG2026</div><div class="coupon-desc">15% off packages</div></div></div>
+  <div class="coupon"><span class="coupon-icon">🌟</span><div><div class="coupon-code">NEWUSER40</div><div class="coupon-desc">New users: 40% off first booking</div></div></div>
+  <div class="coupon"><span class="coupon-icon">🏖</span><div><div class="coupon-code">BALI20</div><div class="coupon-desc">20% off Bali packages</div></div></div>
+</div>
+</header>
+
+<!-- Hero search -->
+<div class="hero">
+  <h2>Where are you going?</h2>
+  <div class="search-box">
+    <div class="stabs"><div class="stab">Flights</div><div class="stab active">Packages</div><div class="stab">Hotels</div><div class="stab">Things to Do</div></div>
+    <div class="search-row">
+      <input placeholder="🔍 Destination or hotel" value="">
+      <input placeholder="📅 Dates" style="max-width:160px">
+      <input placeholder="👥 Travellers" style="max-width:130px">
+      <button class="s-btn">Search</button>
+    </div>
+  </div>
+</div>
+
+<!-- Category nav -->
+<div class="cat-nav">
+  <div class="cat-item"><div class="cat-icon">✈</div><div class="cat-label">Flights</div></div>
+  <div class="cat-item"><div class="cat-icon">🏨</div><div class="cat-label">Hotels</div></div>
+  <div class="cat-item"><div class="cat-icon">📦</div><div class="cat-label">Packages</div></div>
+  <div class="cat-item"><div class="cat-icon">🎭</div><div class="cat-label">Things To Do</div></div>
+  <div class="cat-item"><div class="cat-icon">🚢</div><div class="cat-label">Cruises</div></div>
+  <div class="cat-item"><div class="cat-icon">🚗</div><div class="cat-label">Car Hire</div></div>
+  <div class="cat-item"><div class="cat-icon">🛡</div><div class="cat-label">Insurance</div></div>
+  <div class="cat-item"><div class="cat-icon">💳</div><div class="cat-label">Traveloka Pay</div></div>
+</div>
+
+<!-- New user banner -->
+<div class="new-user-banner">
+  <div class="nub-text"><h3>🎉 New to Traveloka? Get 40% off your first booking</h3><p>Use code NEWUSER40 at checkout. Valid for new accounts only. Ends 30 April 2026.</p></div>
+  <div class="nub-badge">Claim now →</div>
+</div>
+
+<div class="main">
+
+  <!-- Flash deals -->
+  <div class="flash-head">
+    <h3>⚡ Flash Deals <span class="flash-timer">Ends in: 04:23:11</span></h3>
+    <a href="#">See all flash deals →</a>
+  </div>
+  <div class="flash-carousel" id="flash-carousel"></div>
+
+  <!-- Main vertical feed -->
+  <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px">
+    <h3 style="font-size:16px;font-weight:700">All Deals from Australia <span style="font-size:12px;color:#888;font-weight:400">(30 results)</span></h3>
+    <select style="border:1px solid #ddd;border-radius:4px;padding:5px 8px;font-size:12px;background:#fff"><option>Most Popular</option><option>Price: Low to High</option><option>Best Rated</option></select>
+  </div>
+  <div id="feed"></div>
+
+</div>
+
+<footer>
+  <a href="#">About Traveloka</a><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Help</a><a href="#">Careers</a>
+  <p style="margin-top:8px">© 2026 Traveloka. All rights reserved. Prices in AUD. Subject to availability.</p>
+</footer>
+
+<script src="products.js"></script>
+<script>
+const EMOJI={Bali:'🌴',Ubud:'🌿','Gold Coast':'🎢',Cairns:'🐠',London:'🎡',Mediterranean:'🚢',Phuket:'🏖',Bangkok:'🏙',Maldives:'🏝','Bora Bora':'🌺',Singapore:'✈',Fiji:'🌊',Japan:'🗾',Auckland:'🇳🇿',Vietnam:'🏛',Italy:'🏛',Queenstown:'🏔','South Island':'🚗',Europe:'🗺',Whitsundays:'⛵',Noosa:'🏄','South Pacific':'🚢'};
+const BGRADS={Package:'#e8f4fd',Tour:'#f3e8fd',Flight:'#e8eaed',Cruise:'#e8f5e9'};
+function em(d){for(const[k,v] of Object.entries(EMOJI)) if(d.includes(k)) return v; return '✈';}
+
+// Flash deals — last-minute and budget items
+const flashItems=PRODUCTS.filter(p=>p.badge==='Last Minute'||p.price<1500||p.badge==='Best Price').slice(0,8);
+const flashCar=document.getElementById('flash-carousel');
+flashItems.forEach(p=>{
+  const discount=Math.round((Math.random()*.25+.1)*100);
+  const c=document.createElement('div');c.className='flash-card';
+  c.innerHTML=`<div class="flash-img" style="background:${BGRADS[p.cat]||'#f0f7ff'}"><span>${em(p.dest)}</span><span class="flash-off">${discount}% OFF</span></div>
+    <div class="flash-body"><div class="flash-dest">${p.dest.split(',')[0]}</div><div class="flash-name">${p.name}</div><div class="flash-from">From</div><div class="flash-price">AU$${p.price.toLocaleString()}</div></div>`;
+  flashCar.appendChild(c);
+});
+
+// Main feed
+const feed=document.getElementById('feed');
+const sorted=[...PRODUCTS].sort((a,b)=>b.reviews-a.reviews);
+sorted.forEach(p=>{
+  const discPct=Math.round((Math.random()*.2+.05)*100);
+  const wasPrice=Math.round(p.price*(1+discPct/100));
+  const card=document.createElement('div');card.className='deal-card';
+  card.innerHTML=`
+    <div class="deal-img" style="background:${BGRADS[p.cat]||'#f0f7ff'}">
+      <span>${em(p.dest)}</span>
+      <span class="deal-badge-img">${p.badge}</span>
+    </div>
+    <div class="deal-body">
+      <div class="deal-top">
+        <div class="deal-name">${p.name}</div>
+        <span class="deal-cat-tag">${p.cat}</span>
+      </div>
+      <div class="deal-dest">${p.dest} · ${p.duration} · Departs ${p.depart}</div>
+      <div class="deal-incl">${p.inclusions}</div>
+      <div class="deal-tags">
+        ${p.inclusions.toLowerCase().includes('flight')?'<span class="deal-tag green">✈ Flights incl.</span>':''}
+        ${p.inclusions.toLowerCase().includes('all-inclusive')||p.inclusions.toLowerCase().includes('all meals')?'<span class="deal-tag orange">All-inclusive</span>':''}
+        <span class="deal-tag">${p.suitable.split(',')[0]}</span>
+        <span class="deal-tag">${p.depart}</span>
+      </div>
+    </div>
+    <div class="deal-price-col">
+      <div>
+        <div class="dp-rating">
+          <span class="dp-star">★</span>
+          <span class="dp-num">${p.rating}</span>
+          <span class="dp-cnt">(${p.reviews.toLocaleString()})</span>
+        </div>
+        <div style="background:#fff3e0;border-radius:3px;padding:2px 6px;font-size:10px;color:#c84b00;font-weight:700;text-align:center;margin-bottom:6px">${discPct}% OFF</div>
+      </div>
+      <div>
+        <div class="dp-was">AU$${wasPrice.toLocaleString()}</div>
+        <div class="dp-price">AU$${p.price.toLocaleString()}</div>
+        <div class="dp-unit">${p.unit}</div>
+        <button class="dp-btn">Book Now</button>
+        <div class="dp-pay">✓ Traveloka Pay Later available</div>
+      </div>
+    </div>`;
+  feed.appendChild(card);
+});
+</script>
+</body>
+</html>
