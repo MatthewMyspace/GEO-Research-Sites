@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flight Centre — Travel Deals & Packages</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;font-size:14px;color:#333;background:#f0f0f0;line-height:1.5}
+.hdr{background:#e31837;padding:12px 20px;display:flex;align-items:center;gap:20px}
+.hdr .logo{color:#fff;font-size:22px;font-weight:900}
+.hdr nav a{color:rgba(255,255,255,.8);text-decoration:none;font-size:13px;padding:0 10px}
+.hdr .cta{margin-left:auto;background:#fff;color:#e31837;padding:6px 16px;border-radius:3px;font-weight:700;font-size:13px;text-decoration:none}
+.hero{background:#c01428;padding:32px 20px;text-align:center}
+.hero h1{color:#fff;font-size:32px;font-weight:900;margin-bottom:8px}
+.hero p{color:rgba(255,255,255,.75);font-size:15px}
+.search{background:#fff;padding:12px 20px;display:flex;gap:8px;border-bottom:1px solid #ddd}
+.search input{border:1px solid #ccc;border-radius:3px;padding:8px 12px;font-size:13px;flex:1}
+.search button{background:#e31837;color:#fff;border:none;padding:8px 20px;border-radius:3px;font-weight:700;font-size:13px;cursor:pointer}
+.main{max-width:1100px;margin:20px auto;padding:0 16px}
+.section{margin-bottom:30px}
+.section-title{font-size:20px;font-weight:700;margin-bottom:4px;padding-bottom:6px;border-bottom:2px solid #e31837;color:#222}
+.section-subtitle{font-size:12px;color:#666;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px}
+.card{background:#fff;border:1px solid #ddd;border-radius:3px;overflow:hidden}
+.card-img{height:120px;background:#ccc;display:flex;align-items:center;justify-content:center;color:#777;font-size:13px;font-weight:700;text-align:center;padding:8px}
+.card-body{padding:12px}
+.card-dest{font-size:11px;color:#e31837;font-weight:700;text-transform:uppercase;margin-bottom:4px}
+.card-name{font-size:15px;font-weight:700;color:#222;margin-bottom:10px;line-height:1.3}
+.details{border-top:1px solid #eee;border-bottom:1px solid #eee;padding:8px 0;margin-bottom:10px}
+.detail-row{display:flex;gap:8px;font-size:12px;margin:3px 0;color:#555}
+.detail-label{font-weight:700;color:#333;min-width:82px}
+.inclusions-title{font-size:12px;font-weight:700;color:#333;margin-bottom:4px}
+.inclusions-list{margin:0 0 10px 16px;padding:0}
+.inclusions-list li{font-size:12px;color:#555;margin-bottom:3px;line-height:1.4}
+.price-block{display:flex;align-items:baseline;gap:5px;margin-top:8px}
+.price-label{font-size:11px;color:#777;font-weight:700;text-transform:uppercase}
+.card-price{font-size:22px;font-weight:700;color:#e31837}
+.card-price span{font-size:11px;color:#999;font-weight:400}
+.card-btn{display:block;margin-top:8px;background:#e31837;color:#fff;text-align:center;padding:7px;border-radius:2px;font-size:12px;font-weight:700;text-decoration:none;cursor:pointer;border:none;width:100%}
+footer{background:#222;color:#888;padding:16px 20px;font-size:11px;margin-top:24px}
+footer a{color:#888;margin-right:12px}
+@media(max-width:850px){.grid{grid-template-columns:1fr}.search{flex-direction:column}.hdr{flex-wrap:wrap}.hdr .cta{margin-left:0}}
+</style>
+</head>
+<body>
+<!-- NOTE: Structure-only variant. No schema markup, no JSON-LD, no FAQ, no new product facts. Formatting only. -->
+
+<div class="hdr">
+  <div class="logo">Flight Centre</div>
+  <nav>
+    <a href="#">Flights</a><a href="#">Hotels</a><a href="#">Tours</a>
+    <a href="#">Cruises</a><a href="#">Holidays</a><a href="#">Deals</a>
+  </nav>
+  <a href="#" class="cta">Call 133 133</a>
+</div>
+
+<div class="hero">
+  <h1>Great Travel Deals</h1>
+  <p>Find amazing holiday packages, flights and tours from Australia</p>
+</div>
+
+<div class="search">
+  <input type="text" placeholder="Where do you want to go?">
+  <input type="text" placeholder="Dates" style="max-width:160px">
+  <button>Search</button>
+</div>
+
+<div class="main" id="main"></div>
+
+<footer>
+  <a href="#">Terms</a><a href="#">Privacy</a><a href="#">About</a><a href="#">Contact</a>
+  <p style="margin-top:6px">© 2026 Flight Centre Travel Group. Prices per person twin share unless stated. Subject to availability.</p>
+</footer>
+
+<script src="products.js"></script>
+<script>
+const DEST_EMOJI = {
+  'Bali':'🌴','Ubud':'🌿','Gold Coast':'🎢','Cairns':'🐠','London':'🎡',
+  'Mediterranean':'🚢','Phuket':'🏖','Bangkok':'🏙','Maldives':'🏝',
+  'Bora Bora':'🌺','Singapore':'✈','Fiji':'🌊','Japan':'🗾','Auckland':'🇳🇿',
+  'Vietnam':'🏛','Italy':'🏛','Queenstown':'🏔','South Island':'🚗',
+  'Europe':'🗺','Whitsundays':'⛵','Noosa':'🏄','South Pacific':'🚢'
+};
+function getEmoji(dest){
+  for(const[k,v] of Object.entries(DEST_EMOJI)) if(dest.includes(k)) return v;
+  return '✈';
+}
+function splitInclusions(text){
+  return text.split(',').map(x=>x.trim()).filter(Boolean);
+}
+
+// Same product categories as baseline. Structure only: clearer labels and bullet points.
+const groups = [
+  {title:'Holiday Packages',subtitle:'Product cards are organised by destination, duration, suitability, inclusions and price.',filter:p=>p.cat==='Package'},
+  {title:'Tours',subtitle:'Tour products are shown with the same content, reformatted into labelled fields.',filter:p=>p.cat==='Tour'},
+  {title:'Flights',subtitle:'Flight products are shown with clearer labels while keeping the same product data.',filter:p=>p.cat==='Flight'},
+  {title:'Cruises',subtitle:'Cruise products are shown with the same inclusions in bullet point format.',filter:p=>p.cat==='Cruise'},
+];
+
+const main = document.getElementById('main');
+groups.forEach(g=>{
+  const prods = PRODUCTS.filter(g.filter);
+  if(!prods.length) return;
+
+  const sec = document.createElement('section');
+  sec.className = 'section';
+  sec.innerHTML = `<h2 class="section-title">${g.title}</h2><div class="section-subtitle">${g.subtitle}</div>`;
+
+  const grid = document.createElement('div');
+  grid.className = 'grid';
+
+  prods.forEach(p=>{
+    const card = document.createElement('div');
+    card.className = 'card';
+    const inclusions = splitInclusions(p.inclusions).map(item=>`<li>${item}</li>`).join('');
+    card.innerHTML = `
+      <div class="card-img">${getEmoji(p.dest)} ${p.dest}</div>
+      <div class="card-body">
+        <div class="card-dest">${p.dest}</div>
+        <div class="card-name">${p.name}</div>
+        <div class="details">
+          <div class="detail-row"><span class="detail-label">Category:</span><span>${p.cat}</span></div>
+          <div class="detail-row"><span class="detail-label">Duration:</span><span>${p.duration}</span></div>
+          <div class="detail-row"><span class="detail-label">Suitable for:</span><span>${p.suitable}</span></div>
+        </div>
+        <div class="inclusions-title">Inclusions:</div>
+        <ul class="inclusions-list">${inclusions}</ul>
+        <div class="price-block"><span class="price-label">Price</span><span class="card-price">$${p.price.toLocaleString()} <span>${p.unit}</span></span></div>
+        <button class="card-btn">View Deal</button>
+      </div>`;
+    grid.appendChild(card);
+  });
+
+  sec.appendChild(grid);
+  main.appendChild(sec);
+});
+</script>
+</body>
+</html>
