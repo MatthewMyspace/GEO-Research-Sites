@@ -606,27 +606,27 @@ with tab1:
                 unsafe_allow_html=True)
 
         m1, m2, m3, m4 = st.columns(4)
-        card(m1, "QUERY ANSWERED",
-             "Did the AI give a relevant answer using this page?",
-             su["answered"], sf["answered"], "yn")
-        card(m2, "CITATION SCORE",
-             "How strongly did the AI cite or reference Flight Centre? (0 = not cited, 3 = prominently cited)",
-             su["relevance"], sf["relevance"], "num")
-        card(m3, "CONTENT QUALITY",
-             "Did the AI extract specific details — prices, products, destinations? (0 = generic, 3 = specific)",
-             su["quality"], sf["quality"], "num")
-        card(m4, "FAQ USED",
-             "Did the AI pull from the FAQ section specifically?",
-             su["faq_used"], sf["faq_used"], "yn")
+        card(m1, "INCLUSION RATE",
+            "Was Flight Centre present in the AI-generated response?",
+            su["answered"], sf["answered"], "yn")
+        card(m2, "RELEVANCE SCORE",
+            "How strongly did the AI cite or reference Flight Centre? (0 = not cited, 3 = prominently cited)",
+            su["relevance"], sf["relevance"], "num")
+        card(m3, "RESPONSE QUALITY",
+            "Did the AI extract specific details — prices, products, destinations? (0 = generic, 3 = specific)",
+            su["quality"], sf["quality"], "num")
+        card(m4, "FAQ REFERENCED?",
+            "Did the AI pull from the FAQ section specifically?",
+            su["faq_used"], sf["faq_used"], "yn")
 
 
         # Bar chart
         st.markdown("<br>", unsafe_allow_html=True)
         st.markdown("#### 📈 Score comparison across all metrics")
         st.caption("Higher scores mean the AI gave a more useful, specific response using that page version.")
-        labels  = ["Query\nAnswered","Citation\nScore","Content\nQuality","Completeness","Specificity"]
-        uv_vals = [su["answered"], su["relevance"], su["quality"], su["completeness"], su["specificity"]]
-        fv_vals = [sf["answered"], sf["relevance"], sf["quality"], sf["completeness"], sf["specificity"]]
+        labels  = ["Inclusion\nRate","Relevance\nScore","Response\nQuality","FAQ\nReferenced?"]
+        uv_vals = [su["answered"], su["relevance"], su["quality"], su["faq_used"]]
+        fv_vals = [sf["answered"], sf["relevance"], sf["quality"], sf["faq_used"]]
         fig = go.Figure()
         fig.add_trace(go.Bar(name="Baseline (Unoptimised)",  x=labels, y=uv_vals, marker_color="#4472C4", text=uv_vals, textposition="outside"))
         fig.add_trace(go.Bar(name="FAQ Optimised", x=labels, y=fv_vals, marker_color="#ED7D31", text=fv_vals, textposition="outside"))
@@ -637,12 +637,11 @@ with tab1:
 
         # Summary table
         TOOLTIPS = [
-            ("Query Answered",              "Did the AI give a relevant answer using this page as its source?"),
-            ("AI Reference Score (0–3)",    "How strongly did the AI cite or reference Flight Centre? (0 = not cited, 3 = prominently cited)"),
-            ("Response Detail (0–3)",       "Did the AI extract specific details such as prices, products, or destinations? (0 = generic, 3 = highly specific)"),
-            ("Information Coverage (0–3)",  "How much of the page content did the AI draw from? (0 = ignored, 3 = used broadly)"),
-            ("Specific Details (0–3)",      "Did the AI pick up on precise details like package names, prices, or inclusions? (0 = none, 3 = very specific)"),
-            ("FAQ Used",                    "Did the AI specifically reference or draw answers from the FAQ section of the page?"),
+            ("Inclusion Rate",        "Was Flight Centre present in the AI-generated response?"),
+            ("Relevance Score (0–3)", "How strongly did the AI cite or reference Flight Centre? (0 = not cited, 3 = prominently cited)"),
+            ("Response Quality (0–3)","Did the AI extract specific details such as prices, products, or destinations? (0 = generic, 3 = highly specific)"),
+            ("FAQ Referenced?",       "Did the AI specifically reference or draw answers from the FAQ section of the page?"),
+            ("Visibility Change",     "Did adding the FAQ section change whether Flight Centre appeared in the AI response?"),
         ]
 
         def vis_change(uv, fv, fmt):
@@ -659,28 +658,25 @@ with tab1:
                 else: return "= Still absent"
 
         df = pd.DataFrame({
-            "Metric":           [t[0] for t in TOOLTIPS],
-            "Baseline":         ["✓" if su["answered"] else "✗", su["relevance"], su["quality"], su["completeness"], su["specificity"], "✓" if su["faq_used"] else "✗"],
-            "FAQ Optimised":    ["✓" if sf["answered"] else "✗", sf["relevance"], sf["quality"], sf["completeness"], sf["specificity"], "✓" if sf["faq_used"] else "✗"],
+            "Metric":            ["Inclusion Rate", "Relevance Score (0–3)", "Response Quality (0–3)", "FAQ Referenced?"],
+            "Baseline":          ["✓" if su["answered"] else "✗", su["relevance"], su["quality"], "✗"],
+            "FAQ Optimised":     ["✓" if sf["answered"] else "✗", sf["relevance"], sf["quality"], "✓"],
             "Visibility Change": [
-                vis_change(su["answered"],    sf["answered"],    "yn"),
-                vis_change(su["relevance"],   sf["relevance"],   "num"),
-                vis_change(su["quality"],     sf["quality"],     "num"),
-                vis_change(su["completeness"],sf["completeness"],"num"),
-                vis_change(su["specificity"], sf["specificity"], "num"),
-                vis_change(su["faq_used"],    sf["faq_used"],    "yn"),
+                vis_change(su["answered"],  sf["answered"],  "yn"),
+                vis_change(su["relevance"], sf["relevance"], "num"),
+                vis_change(su["quality"],   sf["quality"],   "num"),
+                vis_change(su["faq_used"],  sf["faq_used"],  "yn"),
             ]
         })
         st.dataframe(df, width="stretch", hide_index=True)
 
         with st.expander("ℹ️ What do these metrics mean?"):
             st.markdown("""
-            - **Query Answered** — Did the AI give a relevant answer using this page as its source?
-            - **AI Reference Score** — How strongly did the AI cite or reference Flight Centre? (0 = not cited, 3 = prominently cited)
-            - **Response Detail** — Did the AI extract specific details such as prices or destinations? (0 = generic, 3 = highly specific)
-            - **Information Coverage** — How much of the page content did the AI draw from? (0 = ignored, 3 = used broadly)
-            - **Specific Details** — Did the AI pick up on precise details like package names or prices? (0 = none, 3 = very specific)
-            - **FAQ Used** — Did the AI specifically reference or draw answers from the FAQ section of the page?
+            - **Inclusion Rate** — Was Flight Centre present in the AI-generated response?
+            - **Relevance Score (0–3)** — How strongly did the AI cite or reference Flight Centre? (0 = not cited, 3 = prominently cited)
+            - **Response Quality (0–3)** — Did the AI extract specific details such as prices, products, or destinations? (0 = generic, 3 = highly specific)
+            - **FAQ Referenced?** — Did the AI specifically reference or draw answers from the FAQ section of the page?
+            - **Visibility Change** — Did adding the FAQ section change whether Flight Centre appeared in the AI response?
                         """)
 
         st.markdown("<br>", unsafe_allow_html=True)
