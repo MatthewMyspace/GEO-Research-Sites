@@ -394,6 +394,8 @@ def team_testing_summary():
                 unsafe_allow_html=True
             )
 
+run_status = st.empty()
+
 tab1, tab2 = st.tabs(["Baseline vs FAQ", "AI Answer Simulation"])
 
 team_testing_summary()
@@ -407,7 +409,8 @@ if run_btn:
         st.error("⚠️ Please enter or select a query.")
         st.stop()
 
-    prog = st.progress(0, "📄 Loading pages...")
+    with run_status:
+        prog = st.progress(0, "📄 Loading pages...")
     try:
         # Step 1 — fetch all 7 pages (no API calls)
         all_contents = {}
@@ -507,6 +510,7 @@ Trip.com: [0-3]"""
         prog.progress(100, "✅ Done")
         time.sleep(0.3)
         prog.empty()
+        run_status.empty()
 
         st.session_state.update({
             "q":               query_text,
@@ -522,8 +526,8 @@ Trip.com: [0-3]"""
 
     except Exception as e:
         prog.empty()
+        run_status.empty()
         st.error(f"❌ Error: {e}")
-        st.stop()
 
 # ── TAB 1: FC EVALUATION ──
 with tab1:
@@ -551,13 +555,13 @@ with tab1:
 
         c1, c2 = st.columns(2)
         with c1:
-            u_score = cit.get('FC Unoptimised', 0)
-            st.markdown(f"**BASELINE (Unoptimised)** &nbsp; `Citation score: {u_score}/3`")
+            u_score = cit.get('Flight Centre Baseline (Unoptimised)', 0)
+            st.markdown(f"**BASELINE — FC Unoptimised** &nbsp; `Citation score: {u_score}/3`")
             safe_u = highlight_tokens(au, q) if au else "<i>No answer extracted — check Raw Response below.</i>"
             st.markdown(f"<div class='rbox' style='background:#E4EBF8;border:2px solid #4472C4'>{safe_u}</div>", unsafe_allow_html=True)
         with c2:
-            f_score = cit.get('FC FAQ Optimised', 0)
-            st.markdown(f"**FAQ OPTIMISED** &nbsp; `Citation score: {f_score}/3`")
+            f_score = cit.get('Flight Centre FAQ Optimised', 0)
+            st.markdown(f"**FAQ OPTIMISED — FC with FAQ** &nbsp; `Citation score: {f_score}/3`")
             safe_f = highlight_tokens(af, q) if af else "<i>No answer extracted — check Raw Response below.</i>"
             st.markdown(f"<div class='rbox' style='background:#FFF3EA;border:2px solid #ED7D31'>{safe_f}</div>", unsafe_allow_html=True)
 
